@@ -29,11 +29,11 @@ export class TasksController {
   getTaskById(@Param('id') id:string):Promise<Task>{
     return this.tasksService.getTaskById(id);
   }
-  // //http://localhost:3000/tasks/alex
-  // @Get('/:id')
-  // getTaskById(@Param('id') id: string):Task{ //파라미터를 id에다가 담음
-  //   return this.tasksService.getTaskById(id);
-  // }
+
+  @Post()
+  createTask(@Body() CreateTaskDto:CreateTaskDto):Promise<Task>{ //Body를 CreateTaskDto에다가 담음
+    return this.tasksService.createTask(CreateTaskDto);
+  }
 
   // @Post()
   // createTask(@Body() CreateTaskDto:CreateTaskDto):Task{ //Body를 CreateTaskDto에다가 담음

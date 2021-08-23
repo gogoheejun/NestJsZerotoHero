@@ -49,14 +49,10 @@ export class TasksService {
     return found;
   }
 
-  // getTaskById(id:string): Task{
-  //   const found = this.tasks.find((task)=>task.id === id);
+  createTask(createTaskDto:CreateTaskDto):Promise<Task>{
+    return this.taskRepository.createTask(createTaskDto);
+  }
 
-  //   if(!found){
-  //     throw new NotFoundException(`Task with ID "${id}" not found`);
-  //   }
-  //   return found;
-  // }
 
   // createTask(createTaskDto:CreateTaskDto):Task {
   //   const{title,description} = createTaskDto;
