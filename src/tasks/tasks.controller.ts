@@ -35,15 +35,10 @@ export class TasksController {
     return this.tasksService.createTask(CreateTaskDto);
   }
 
-  // @Post()
-  // createTask(@Body() CreateTaskDto:CreateTaskDto):Task{ //Body를 CreateTaskDto에다가 담음
-  //   return this.tasksService.createTask(CreateTaskDto);
-  // }
-
-  // @Delete('/:id')
-  // deleteTask(@Param('id') id: string):void{
-  //   return this.tasksService.deleteTask(id);
-  // }
+  @Delete('/:id')
+  deleteTask(@Param('id') id: string):Promise<void>{
+    return this.tasksService.deleteTask(id);
+  }
 
   // @Patch('/:id/status')
   // updateTaskStatus(

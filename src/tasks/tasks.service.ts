@@ -53,26 +53,13 @@ export class TasksService {
     return this.taskRepository.createTask(createTaskDto);
   }
 
-
-  // createTask(createTaskDto:CreateTaskDto):Task {
-  //   const{title,description} = createTaskDto;
-
-  //   const task: Task = {
-  //     id: uuid(),
-  //     title,
-  //     description,
-  //     status: TaskStatus.OPEN,
-  //   };
-
-  //   //만들었으니 기존 배열에 넣기
-  //   this.tasks.push(task);
-  //   return task;
-  // }
-
-  // deleteTask(id:string){
-  //   const found = this.getTaskById(id); //벨리데이션
-  //   this.tasks = this.tasks.filter((task)=>task.id !== found.id);
-  // }
+  async deleteTask(id:string): Promise<void>{
+    const result = await this.taskRepository.delete(id);
+    
+    if(result.affected === 0){
+      throw new NotFoundException(`Task with ID"${id}" not found`);
+    }
+  }
 
   // updateTaskStatus(id:string, status:TaskStatus){
   //   const task = this.getTaskById(id);
