@@ -11,19 +11,13 @@ import { TasksService } from './tasks.service';
 export class TasksController {
   constructor(private tasksService: TasksService){}
 
-  // //http://localhost:3000/tasks
-  // @Get()
-  // getTasks(@Query() filterDto: GetTasksFilterDto):Task[]{
-  //   //if we have any filters defined, call tasksService.getTasksWithFilters
-  //   //otherwise, just get all tasks
-  //   if(Object.keys(filterDto).length){
-  //     return this.tasksService.getTasksWithFilters(filterDto);
-  //   }else{
-  //     return this.tasksService.getAllTasks();
-  //   }
-
-  //   return this.tasksService.getAllTasks();
-  // }
+  //http://localhost:3000/tasks
+  @Get()
+  getTasks(@Query() filterDto: GetTasksFilterDto):Promise<Task[]>{
+    //if we have any filters defined, call tasksService.getTasksWithFilters
+    //otherwise, just get all tasks
+    return this.tasksService.getTasks(filterDto);
+  }
 
   @Get('/:id')
   getTaskById(@Param('id') id:string):Promise<Task>{
