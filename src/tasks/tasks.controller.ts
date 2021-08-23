@@ -40,13 +40,13 @@ export class TasksController {
     return this.tasksService.deleteTask(id);
   }
 
-  // @Patch('/:id/status')
-  // updateTaskStatus(
-  //   @Param('id') id:string,
-  //   @Body() updateTaskStatus:UpdateTaskStatusDto,
-  // ):Task{
-  //   const {status} = updateTaskStatus
-  //   return this.tasksService.updateTaskStatus(id,status);
-  // }
+  @Patch('/:id/status')
+  updateTaskStatus(
+    @Param('id') id:string,
+    @Body() updateTaskStatus:UpdateTaskStatusDto,
+  ):Promise<Task>{
+    const {status} = updateTaskStatus
+    return this.tasksService.updateTaskStatus(id,status);
+  }
 
 }
