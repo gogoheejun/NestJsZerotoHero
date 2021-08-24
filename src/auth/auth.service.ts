@@ -23,7 +23,7 @@ export class AuthService {
     const user = await this.userRepository.findOne({username});
 
     if(user && (await bcrypt.compare(password, user.password))){
-      const payload:JwtPayload = {username}; //비번은 토큰에 넣지 않음.
+      const payload:JwtPayload = {username}; //비번은 토큰에 넣지 않음. 타입세이프하게 jwtpayload인터페이스 만들어서 씀
       const accessToken: string = await this.jwtSerive.sign(payload);
       return {accessToken};
     }else{
