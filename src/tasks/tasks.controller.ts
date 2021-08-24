@@ -17,10 +17,13 @@ export class TasksController {
 
   //http://localhost:3000/tasks
   @Get()
-  getTasks(@Query() filterDto: GetTasksFilterDto):Promise<Task[]>{
+  getTasks(
+    @Query() filterDto: GetTasksFilterDto, 
+    @GetUser() user:User,
+    ):Promise<Task[]>{
     //if we have any filters defined, call tasksService.getTasksWithFilters
     //otherwise, just get all tasks
-    return this.tasksService.getTasks(filterDto);
+    return this.tasksService.getTasks(filterDto,user);
   }
 
   @Get('/:id')
