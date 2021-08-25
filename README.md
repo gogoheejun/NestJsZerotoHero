@@ -1,3 +1,9 @@
+udemy의 https://www.udemy.com/course/nestjs-zero-to-hero/ 강의를 들으면서 만들었습니다.     
+
+- 다음 페이지에 노트필기를 하였음   
+https://github.com/gogoheejun/TIL/tree/main/node.js/nest.js/udemy_ZeroToHero    
+
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
 </p>
